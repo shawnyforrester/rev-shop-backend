@@ -1,5 +1,6 @@
 # rev-shop
-## RevShop:E-commerceApplicationCenter of Excellence
+## RevShop:E-commerce Application
+Center of Excellence
 28-March-2023.
 
 ## Table of Contents
@@ -18,11 +19,13 @@
 •Nice-to-haves
 
 # Project Requirements
-Overview
+### Overview
 
 The RevShopproject aims to develop a secure, user-friendly, and versatile e-commerce application for both buyers and sellers. The core functionalities for buyers include browsing products, adding products to cart, checkout, and payment processing. Sellers can add products, manage inventory, and fulfill orders. The project's completion will be demonstrated through a cloud-hosted working version, technical presentation, and associated diagrams.
 
-## Core Functional ScopeBuyer user account:
+## Core Functional Scope
+
+### Buyer user account:
 
 As a buyer, I should be able to:
 •View product details including image,price, description,rating,anduser review.<br>
