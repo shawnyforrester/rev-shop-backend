@@ -1,5 +1,5 @@
 # rev-shop
-## RevShop:E-commerce Application
+## E-commerce Application
 Center of Excellence
 28-March-2023.
 
@@ -41,7 +41,8 @@ As a buyer, I should be able to:
 •Generate invoice for the order.<br>
 •Make paymentusing the paymentgateway.
 
-## Retailer user account:As a retailer, I should be able to:
+## Retailer user account:
+### As a retailer, I should be able to:
 
 •Register as a seller with email, password, and business details. <br>
 •Receive an email regarding registration status.<br>
@@ -51,7 +52,7 @@ As a buyer, I should be able to:
 •Receive email notifications when a user places anorder.<br>
 •Providediscounts.<br>
 •A graphical dashboard to analyze the product sales.<br>
-•Geta notificationwhen user submits a review and respond to it.<br>
+•Get a notificationwhen user submits a review and respond to it.<br>
 •Manage inventory with low stock alerts for sellers.
 
 ## Adminuser account:
@@ -65,13 +66,15 @@ As a buyer, I should be able to:
 ## Standard Functional Scope
 ### 1.Buyer and retailer accounts should be able to:
 
-•Access settings to change personal or business details.
-•Login as a buyer or sellerusing email and password.
-•Sign up as a user with email, password, and personaldetails.
-•Logout fromthe application.
-•Reset the password and request for a forgotten password to the email.
-•Delete or temporarily disable the account.2.Admin account should be able to:
-•Login/ Logout.
+•Access settings to change personal or business details.<br>
+•Login as a buyer or sellerusing email and password.<br>
+•Sign up as a user with email, password, and personaldetails.<br>
+•Logout fromthe application.<br>
+•Reset the password and request for a forgotten password to the email.<br>
+•Delete or temporarily disable the account.
+
+2.Admin account should be able to:
+•Login/ Logout.<br>
 •Reset the password and request for a forgotten password to the email.
 Non-functional Scope•Responsive to all the devices
 •Supported by common browsers(Chrome, Edge, Firefox, Safari)
