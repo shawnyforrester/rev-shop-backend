@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.boot:spring-boot-starter-reactor-netty:3.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-reactor-netty/3.1.0-SNAPSHOT/spring-boot-starter-reactor-netty-3.1.0-20230413.174223-157.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-reactor-netty/3.1.0-SNAPSHOT/spring-boot-starter-reactor-netty-3.1.0-20230413.174223-157-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-reactor-netty/3.1.0-SNAPSHOT/spring-boot-starter-reactor-netty-3.1.0-20230413.174223-157-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
