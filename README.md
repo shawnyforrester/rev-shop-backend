@@ -60,9 +60,16 @@ As a buyer, I should be able to:
 •View all the registration requestssubmittedby the sellers.
 
 ## Standard Functional Scope
-1.Buyer and retailer accounts should be able to:
+### 1.Buyer and retailer accounts should be able to:
 
 •Access settings to change personal or business details.
 •Login as a buyer or sellerusing email and password.
-•Sign up as a user with email, password, and personaldetails.•Logout fromthe application.•Reset the password and request for a forgotten password to the email.•Delete or temporarily disable the account.2.Admin account should be able to:•Login/ Logout.•Reset the password and request for a forgotten password to the email.
-Non-functional Scope•Responsive to all the devices•Supported by common browsers(Chrome, Edge, Firefox, Safari)•80% unit testing on API business logic (Service layer)•Scrum/Agile Development Strategy with Burndown charts•RESTful API implementation•API logging and exception handling•Comments in the code base with respective detailsDefinition of Done•Presentation of technical details of the application.•Sharing the associates’ code repo for technical evaluation with:oERD Diagram.oArchitecture Diagram.oActivity Diagram.ExpectationsSecurity Standards•Password Hashing implementation.•Session management.Nice-to-Have's•Save billing and shipping information for faster checkout.•Notify users ofupcoming offers.•Sellers can pay to advertise their product.•Show different product suggestions to buyers.•Navigational mock for first-time users.•Provide discount for specific payment option.•customer service forum.•Integration with social media platforms to share products and reviews.
+•Sign up as a user with email, password, and personaldetails.
+•Logout fromthe application.
+•Reset the password and request for a forgotten password to the email.
+•Delete or temporarily disable the account.2.Admin account should be able to:
+•Login/ Logout.
+•Reset the password and request for a forgotten password to the email.
+Non-functional Scope•Responsive to all the devices
+•Supported by common browsers(Chrome, Edge, Firefox, Safari)
+•80% unit testing on API business logic (Service layer)•Scrum/Agile Development Strategy with Burndown charts•RESTful API implementation•API logging and exception handling•Comments in the code base with respective detailsDefinition of Done•Presentation of technical details of the application.•Sharing the associates’ code repo for technical evaluation with:oERD Diagram.oArchitecture Diagram.oActivity Diagram.ExpectationsSecurity Standards•Password Hashing implementation.•Session management.Nice-to-Have's•Save billing and shipping information for faster checkout.•Notify users ofupcoming offers.•Sellers can pay to advertise their product.•Show different product suggestions to buyers.•Navigational mock for first-time users.•Provide discount for specific payment option.•customer service forum.•Integration with social media platforms to share products and reviews.
