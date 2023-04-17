@@ -14,17 +14,20 @@ public class AdminService {
     AdminService(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
     }
-    public ResponseEntity<List<Buyer,Retailer>> getAllAccounts() {
-        return new ResponseEntity<>(this.adminRepository.finall(), HttpStatus.OK);
+    public ResponseEntity<List<Buyer, Retailer>> getAllAccounts() {
+        return new ResponseEntity<>(this.adminRepository.findAll(), HttpStatus.OK);
 
     }
 
     public ResponseEntity<?> updateBlockedAccount(Admin admin) {
+        return null;
     }
 
     public ResponseEntity<?> viewComplaintByUser(Admin admin) {
+        return null;
     }
 
     public ResponseEntity<?> viewRegistrationBySellers(Admin admin) {
+        return null;
     }
 }
