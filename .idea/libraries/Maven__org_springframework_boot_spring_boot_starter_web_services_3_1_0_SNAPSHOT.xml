@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-starter-web-services:3.1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230413.174223-157.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230417.132210-172.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230413.174223-157-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230417.132210-172-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230413.174223-157-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web-services/3.1.0-SNAPSHOT/spring-boot-starter-web-services-3.1.0-20230417.132210-172-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
