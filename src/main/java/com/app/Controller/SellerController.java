@@ -23,5 +23,9 @@ public class SellerController {
     public List<Seller> getAllAccounts(){
         return sellerService.getAllSellers();
     }
+    @DeleteMapping("seller/{id}")
+    public void deletesellerById(@PathVariable long id){
+        sellerService.deleteAccountById(id);
+    }
 
 }

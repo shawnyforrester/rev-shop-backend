@@ -19,4 +19,7 @@ public class BuyerService {
     public Buyer addAccount(Buyer account){
         return buyerRepository.save(account);
     }
+    public void deleteAccountById(long id){
+        buyerRepository.deleteById(id);
+    }
 }

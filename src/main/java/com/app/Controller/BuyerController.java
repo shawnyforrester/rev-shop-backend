@@ -23,5 +23,10 @@ public class BuyerController {
     public List<Buyer> getAllAccounts(){
         return buyerService.getAllBuyers();
     }
+    @DeleteMapping("buyer/{id}")
+    public void deleteBuyerById(@PathVariable long id){
+        buyerService.deleteAccountById(id);
+    }
+
 
 }
