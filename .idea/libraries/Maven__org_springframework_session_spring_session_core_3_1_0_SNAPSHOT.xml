@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.session:spring-session-core:3.1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230417.102150-47.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230418.181208-50.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230417.102150-47-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230418.181208-50-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230417.102150-47-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/session/spring-session-core/3.1.0-SNAPSHOT/spring-session-core-3.1.0-20230418.181208-50-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
