@@ -15,9 +15,10 @@ public class Administrator {
     private String username;
     @Column
     private String password;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="")
+    //@Column
+    //@ManyToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name="id")
     //TODO add the foreign column name
-    private long retailer_id;
+    //private Long retailer_id;
 
 }

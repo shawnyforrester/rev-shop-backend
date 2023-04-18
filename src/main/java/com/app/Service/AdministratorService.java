@@ -4,15 +4,10 @@ import com.app.Model.Administrator;
 import com.app.Model.Buyer;
 import com.app.Repository.AdministratorRepository;
 import com.app.Repository.BuyerRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class AdministratorService {
@@ -33,11 +28,19 @@ public class AdministratorService {
     }
 
     public Administrator viewComplaintByUser(Long id){
-        Optional<Administrator> optionalComplaint = administratorRepository.findById(id);
-        return optionalComplaint.get();
-    }
-
-    public Administrator viewRegistrationByRetailers(Administrator administrator){
         return null;
     }
+
+    public Administrator viewRegistrationByRetailers(Long id){
+        return null;
+    }
+
+    public Administrator addAccount(Administrator account){
+        return administratorRepository.save(account);
+    }
+
+    public List<Buyer> getAllBuyers(){
+        return buyerRepository.findAll();
+    }
+
 }
