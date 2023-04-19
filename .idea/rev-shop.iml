@@ -145,5 +145,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.projectreactor:reactor-test:3.5.5" level="project" />
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.5.5" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:3.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:6.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.angus:jakarta.mail:1.1.0" level="project" />
   </component>
 </module>
