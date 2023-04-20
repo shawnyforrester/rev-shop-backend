@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface BuyerRepository extends JpaRepository<Buyer,Long> {
 
-    Buyer findByEmail(String email);
+    Buyer findByEmail(String Email);
+    Buyer findByEmailAndPassword(String email, String password);
     @Query("FROM Buyer WHERE username = :username")
     Buyer getUserByUsername(@Param("username")String username);
+
 
 }

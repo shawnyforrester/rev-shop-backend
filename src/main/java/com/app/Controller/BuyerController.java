@@ -1,10 +1,12 @@
 package com.app.Controller;
 import com.app.Exception.InvalidCredentials;
+import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
 import com.app.Service.BuyerService;
 import jakarta.mail.MessagingException;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +26,19 @@ public class BuyerController {
     public ResponseEntity<String> addAccount(@RequestBody Buyer buyer) throws MessagingException, UnsupportedEncodingException {
         buyerService.addAccount(buyer);
         return ResponseEntity.ok("Buyer Registered");
+    }
+    @PostMapping("login")
+    public ResponseEntity<String>login(@RequestBody Buyer buyer){
+        try{
+            Buyer buyerLogin = buyerService.login(buyer.getEmail(), buyer.getPassword());
+            return ResponseEntity.ok("Buyer Logged In");
+        }
+        catch(UserNotFound e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Login Credentials");
+        }
+
 
     }
-
-    @PostMapping("login")
-    public Buyer getAccount(@RequestBody Buyer account){ return buyerService.getBuyerByUsername(account.getUsername());}
     @GetMapping("buyer")
     public List<Buyer> getAllAccounts(){
         return buyerService.getAllBuyers();

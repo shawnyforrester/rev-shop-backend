@@ -1,5 +1,6 @@
 package com.app.Service;
 import com.app.Exception.InvalidCredentials;
+import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
 import com.app.Repository.BuyerRepository;
 import jakarta.mail.MessagingException;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class BuyerService {
@@ -24,9 +26,6 @@ public class BuyerService {
     public List<Buyer> getAllBuyers(){
         return buyerRepository.findAll();
     }
-//    public Buyer addAccount(Buyer account){
-//        return buyerRepository.save(account);
-//    }
 
     public Buyer getBuyerByUsername(String username){
         return buyerRepository.getUserByUsername(username);
@@ -40,10 +39,25 @@ public class BuyerService {
         }
         System.out.println((buyer.getEmail()));
 
+        Random random = new Random();
+        String tempPass = String.valueOf(random.nextInt(9999999));
+        buyer.setPassword(tempPass);
+
         buyerRepository.save(buyer);
 
         emailSenderService.sendRegistrationEmail(buyer);
+    }
+
+    public Buyer login(String email, String password){
+        Buyer loginCredentials = buyerRepository.findByEmailAndPassword(email,password);
+
+        if(loginCredentials == null){
+            throw new UserNotFound("Buyer Not Found");
+        }
+
+        loginCredentials.setEmail(email);
 
 
+        return loginCredentials;
     }
 }
