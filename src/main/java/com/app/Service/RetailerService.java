@@ -23,4 +23,5 @@ public class RetailerService {
     public Retailer addAccount(Retailer account) {
         return retailerRepository.save(account);
     }
+    public Retailer getRetailerByUsername(String username){return retailerRepository.getRetailerByUsername(username);}
 }
