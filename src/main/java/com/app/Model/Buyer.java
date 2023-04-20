@@ -9,7 +9,7 @@ public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private long id;
+    private Long id;
     private String name;
     @Column
     private String username;
@@ -21,7 +21,6 @@ public class Buyer {
     private String number;
     @Column
     private String address;
-
     @Column
     private String role;
 }
