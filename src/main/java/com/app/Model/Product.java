@@ -5,14 +5,19 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Retailer {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String name;
+    private String category;
     @Column
-    private String username;
+    private String type;
     @Column
-    private String password;
+    private String brand;
+    @Column
+    private String size;
+    @Column
+    private String review;
+
 }
