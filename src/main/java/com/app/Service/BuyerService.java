@@ -19,4 +19,8 @@ public class BuyerService {
     public Buyer addAccount(Buyer account){
         return buyerRepository.save(account);
     }
+
+    public Buyer getBuyerByUsername(String username){
+        return buyerRepository.getUserByUsername(username);
+    }
 }
