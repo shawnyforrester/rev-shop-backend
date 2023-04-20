@@ -1,6 +1,5 @@
 package com.app.Controller;
 import com.app.Model.Buyer;
-import com.app.Service.BuyerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +25,7 @@ public class BuyerController {
     public List<Buyer> getAllAccounts(){
         return buyerService.getAllBuyers();
     }
+
+
 
 }

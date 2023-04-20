@@ -15,7 +15,7 @@ public class Retailer {
     private String username;
     @Column
     private String password;
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="inventory_id")
-    private long inventory_id;
+    private long inventory_id;*/
 }

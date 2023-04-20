@@ -1,4 +1,4 @@
-package com.app.Service;
+package com.app.Security.Service;
 import com.app.Model.Buyer;
 import com.app.Repository.BuyerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
