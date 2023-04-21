@@ -1,8 +1,8 @@
 package com.app.Controller;
 
 
-import com.app.Service.*;
-
+import com.app.Security.Service.BuyerService;
+import com.app.Security.Service.RetailerService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,16 +19,16 @@ import com.app.Model.User;
 public class UserController {
 
 
-    userService us;
+    com.app.Service.userService us;
 
-    AdministratorService adminService;
+    com.app.Service.AdministratorService adminService;
 
     RetailerService retailerService;
 
     BuyerService buyerService;
     //MessageResponse messageResponse;
 
-    public UserController(userService us, AdministratorService adminService,
+    public UserController(com.app.Service.userService us, com.app.Service.AdministratorService adminService,
                           RetailerService retailerService, BuyerService buyerService) {
         this.us = us;
         this.adminService = adminService;

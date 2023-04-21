@@ -1,4 +1,4 @@
-package com.app.Service;
+package com.app.Security.Service;
 
 import com.app.Model.Retailer;
 import com.app.Model.User;
