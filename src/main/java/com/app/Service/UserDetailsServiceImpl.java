@@ -1,4 +1,4 @@
-package com.app.Security.Service;
+package com.app.Service;
 
 import com.app.Model.User;
 import com.app.Repository.UserRepository;

@@ -6,7 +6,7 @@ import com.app.Model.User;
 import com.app.Repository.RoleRepository;
 import com.app.Repository.UserRepository;
 import com.app.Security.JWT.JwtUtils;
-import com.app.Security.Service.UserDetailsImpl;
+import com.app.Service.UserDetailsImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

@@ -1,8 +1,8 @@
 package com.app.Controller;
 
 
-import com.app.Security.Service.BuyerService;
-import com.app.Security.Service.RetailerService;
+import com.app.Service.BuyerService;
+import com.app.Service.RetailerService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

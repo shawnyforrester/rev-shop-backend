@@ -1,6 +1,6 @@
 package com.app.Security.JWT;
 
-import com.app.Security.Service.UserDetailsImpl;
+import com.app.Service.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
