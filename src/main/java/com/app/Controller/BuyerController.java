@@ -1,4 +1,4 @@
-package com.app.Controller;
+/**package com.app.Controller;
 import com.app.Model.Buyer;
 import com.app.Response.PaymentResponse;
 import com.app.Service.BuyerService;
@@ -33,4 +33,4 @@ public class BuyerController {
         return buyerService.getAllBuyers();
     }
 
-}
+}*/

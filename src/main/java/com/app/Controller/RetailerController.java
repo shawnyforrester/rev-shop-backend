@@ -1,4 +1,4 @@
-package com.app.Controller;
+/**package com.app.Controller;
 
 import com.app.Model.Retailer;
 import com.app.Service.RetailerService;
@@ -25,4 +25,4 @@ public class RetailerController {
     public Retailer getAccount(@RequestBody Retailer account) {
         return retailerService.getRetailerByUsername(account.getUsername());
     }
-}
+}*/

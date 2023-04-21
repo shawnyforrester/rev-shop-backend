@@ -1,4 +1,4 @@
-package com.app.Controller;
+/**package com.app.Controller;
 
 import com.app.Service.InventoryService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,4 +10,4 @@ import org.springframework.web.bind.annotation.RestController;
 public class InventoryController {
 
     InventoryService inventoryService;
-}
+}*/
