@@ -48,14 +48,15 @@ public class BuyerService {
         emailSenderService.sendRegistrationEmail(buyer);
     }
 
-    public Buyer login(String email, String password){
-        Buyer loginCredentials = buyerRepository.findByEmailAndPassword(email,password);
+    public Buyer login(String username, String password){
+        Buyer loginCredentials = buyerRepository.findByUsernameAndPassword(username,password);
 
         if(loginCredentials == null){
             throw new UserNotFound("Buyer Not Found");
         }
 
-        loginCredentials.setEmail(email);
+        loginCredentials.setUsername(username);
+        loginCredentials.setPassword(password);
 
 
         return loginCredentials;

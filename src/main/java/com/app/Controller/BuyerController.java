@@ -30,7 +30,7 @@ public class BuyerController {
     @PostMapping("login")
     public ResponseEntity<String>login(@RequestBody Buyer buyer){
         try{
-            Buyer buyerLogin = buyerService.login(buyer.getEmail(), buyer.getPassword());
+            Buyer buyerLogin = buyerService.login(buyer.getUsername(), buyer.getPassword());
             return ResponseEntity.ok("Buyer Logged In");
         }
         catch(UserNotFound e){
