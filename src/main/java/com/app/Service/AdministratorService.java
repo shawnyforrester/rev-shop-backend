@@ -1,10 +1,9 @@
 package com.app.Service;
 
 import com.app.Model.Administrator;
-import com.app.Model.Buyer;
 import com.app.Model.Retailer;
+import com.app.Model.User;
 import com.app.Repository.AdministratorRepository;
-import com.app.Repository.BuyerRepository;
 import com.app.Repository.RetailerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,8 +31,9 @@ public class AdministratorService {
         return null;
     }
 
-    public Administrator addAccount(Administrator account){
-        return administratorRepository.save(account);
+    public Administrator addAccount(User user){
+        Administrator newAdmin = new Administrator (user.getName(), user.getUsername(), user.getPassword());
+        return administratorRepository.save(newAdmin);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.app.Service;
 import com.app.Model.Buyer;
+import com.app.Model.User;
 import com.app.Repository.BuyerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,9 @@ public class BuyerService {
     public List<Buyer> getAllBuyers(){
         return buyerRepository.findAll();
     }
-    public Buyer addAccount(Buyer account){
-        return buyerRepository.save(account);
+    public Buyer addAccount(User user){
+        Buyer newBuyer = new Buyer (user.getName(), user.getUsername(), user.getPassword());
+        return buyerRepository.save(newBuyer);
     }
 
     public Buyer getBuyerByUsername(String username){

@@ -23,4 +23,8 @@ public class Buyer {
     private String address;
     @Column
     private String role;
+
+    public Buyer(String name, String username, String password) {
+
+    }
 }

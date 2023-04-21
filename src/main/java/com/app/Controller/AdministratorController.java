@@ -1,10 +1,8 @@
 package com.app.Controller;
 
 import com.app.Model.Administrator;
-import com.app.Model.Buyer;
 import com.app.Model.Retailer;
 import com.app.Service.AdministratorService;
-import com.app.Service.BuyerService;
 import com.app.Service.RetailerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -15,7 +13,6 @@ import java.util.List;
 @RestController
 public class AdministratorController {
     AdministratorService administratorService;
-    BuyerService buyerService;
     RetailerService retailerService;
 
     @Autowired
@@ -23,10 +20,10 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-    @PostMapping("administrator")
+   /* @PostMapping("administrator")
     public Administrator addAccount(@RequestBody Administrator account){
         return administratorService.addAccount(account);
-    }
+    }*/
 
     @GetMapping("administrator")
     public List<Administrator> getAllAccounts() throws Exception{
