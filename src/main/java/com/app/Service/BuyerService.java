@@ -2,6 +2,7 @@ package com.app.Service;
 import com.app.Exception.InvalidCredentials;
 import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
+import com.app.Model.User;
 import com.app.Repository.BuyerRepository;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,13 @@ public class BuyerService {
     public List<Buyer> getAllBuyers(){
         return buyerRepository.findAll();
     }
+
+
+    public Buyer addAccount(User user){
+        Buyer newBuyer = new Buyer (user.getName(), user.getUsername(), user.getPassword());
+        return buyerRepository.save(newBuyer);
+    }
+
 
     public Buyer getBuyerByUsername(String username){
         return buyerRepository.getUserByUsername(username);

@@ -1,10 +1,16 @@
-package com.app.Controller;
+
+/**package com.app.Controller;
+
 import com.app.Exception.InvalidCredentials;
 import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
+import com.app.Response.PaymentResponse;
 import com.app.Service.BuyerService;
 import jakarta.mail.MessagingException;
 import org.apache.coyote.Response;
+import com.app.Service.StripeService;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Charge;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +48,6 @@ public class BuyerController {
     @GetMapping("buyer")
     public List<Buyer> getAllAccounts(){
         return buyerService.getAllBuyers();
-    }
+    }*/
 
-}
+}*/
