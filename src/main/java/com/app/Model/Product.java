@@ -11,20 +11,19 @@ import lombok.Data;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
-    private String category;
+    private Long id;
     @Column
     private String type;
     @Column
-    private String brand;
-    @Column
     private String size;
-
     @Column
-    private long quantity;
+    private Long quantity;
     @Column
     private String review;
+    @Column
+    private Double price;
+    @Column
+    private String imageUrl;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
