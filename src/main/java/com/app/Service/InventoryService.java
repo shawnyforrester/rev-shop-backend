@@ -1,11 +1,13 @@
 package com.app.Service;
 
 import com.app.Repository.InventoryRepository;
-import com.app.Model.Product;
+import com.app.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.app.Model.Product;
 
 import java.util.List;
+
 @Service
 public class InventoryService {
     @Autowired
