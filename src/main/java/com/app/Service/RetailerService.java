@@ -27,3 +27,4 @@ public class RetailerService {
     }
     public Retailer getRetailerByUsername(String username){return retailerRepository.getRetailerByUsername(username);}
 }
+
