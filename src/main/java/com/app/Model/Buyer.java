@@ -1,4 +1,4 @@
-/**package com.app.Model;
+package com.app.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,11 +13,7 @@ public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-
     private long id;
-    @Column
-
-    private Long id;
 
     private String name;
     @Column
@@ -40,9 +36,8 @@ public class Buyer {
 
     public void setEmail(String email) {
         this.email = email;
-
-    public Buyer(String name, String username, String password) {
-
-
     }
-}*/
+
+    public Buyer(String username, String password) {
+    }
+}

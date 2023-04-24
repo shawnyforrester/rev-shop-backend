@@ -1,16 +1,24 @@
 package com.app.Controller;
 
 
+import com.app.Exception.UserNotFound;
+import com.app.Model.Buyer;
+import com.app.Service.AdministratorService;
 import com.app.Service.BuyerService;
 import com.app.Service.RetailerService;
+import com.app.Service.userService;
+import jakarta.mail.MessagingException;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.app.Model.User;
 
-/**I have implemented a single controller to handle login, registration, and logout of any user type
+import java.io.UnsupportedEncodingException;
+
+/**
+ * I have implemented a single controller to handle login, registration, and logout of any user type
  * This controller then uses instances of the admin, buyer, and retailer services to persist each user type in their respective repos.
- *
  */
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true",
         maxAge = 3600)
@@ -19,9 +27,9 @@ import com.app.Model.User;
 public class UserController {
 
 
-    com.app.Service.userService us;
+    userService us;
 
-    com.app.Service.AdministratorService adminService;
+    AdministratorService adminService;
 
     RetailerService retailerService;
 
@@ -43,41 +51,26 @@ public class UserController {
      * for login for each user
      */
     @PostMapping("login")
-    public ResponseEntity<?> authenticateUser(@RequestBody User user) {
-
-        if (us.getUserByUsername(user.getUsername()).isPresent()) {
-
-            return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, "demoCookie")
-                    .body(us.getUserByUsername(user.getUsername()));
-
+    public Buyer login(@RequestBody Buyer buyer) {
+        try {
+            Buyer buyerLogin = buyerService.login(buyer.getUsername(), buyer.getPassword());
+            return buyerLogin;
+        } catch (UserNotFound e) {
+            System.out.println("invalid login credentials");
+            return null;
         }
-        return ResponseEntity.badRequest().body(null);
-
     }
+
 
     /**
      * This endpoint handles new "user" registration. Each user is assigned to a datatable based on the value in the
      * "role" parameter. The user is also added to a general datatable called "users"
      */
     @PostMapping("registration")
-    public User registerUser(@RequestBody /*RegistrationRequest regRequest*/ User user) {
-
-        /**This block assigns the user object to a specific datatable according to the role value */
-        String role = user.getRole();
-        switch (role) {
-            case "admin":
-                adminService.addAccount(user);
-                break;
-            case "retailer":
-                retailerService.addAccount(user);
-                break;
-            default:
-                buyerService.addAccount(user);
-        }
-        return us.addUser(user);
-
-
+    public Buyer addAccount(@RequestBody Buyer buyer) throws MessagingException, UnsupportedEncodingException {
+        return us.addAccount(buyer);
     }
+
 
     @PostMapping("logout")
     public ResponseEntity<?> logoutUser() {
