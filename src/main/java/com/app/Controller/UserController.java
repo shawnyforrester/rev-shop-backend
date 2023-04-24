@@ -78,5 +78,10 @@ public class UserController {
                 .body("You've been signed out!");
     }
 
+    @PatchMapping("login/{id}")
+    public Buyer resetPassword(@RequestBody Buyer user, @PathVariable long id){
+        return us.changePassword(user, id);
+    }
+
 
 }

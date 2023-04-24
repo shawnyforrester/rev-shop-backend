@@ -35,38 +35,13 @@ public class userService {
         this.emailSenderService = emailSenderService;
     }
 
-
-
-
     public Optional<User> getUserByUsername(String username) {
         Optional<User> newUser = userRepo.findByUsername(username);
         if (newUser.isPresent()) {
             return newUser;
         }
     return null;
-
     }
-
-
-//    public User addUser(User user) throws MessagingException, UnsupportedEncodingException {
-//        if(user.getRole() == "buyer"){
-//            Buyer existingBuyer = buyerRepository.findByEmail(user.getEmail());
-//            if(existingBuyer !=null){
-//                throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
-//            }
-//            System.out.println((user.getEmail()));
-//
-//            Random random = new Random();
-//            String tempPass = String.valueOf(random.nextInt(9999999));
-//            user.setPassword(tempPass);
-//
-//            buyerService.addAccount(user);
-//
-//            emailSenderService.sendRegistrationEmail(user);
-//        }
-//        return userRepo.save(user);
-//
-//    }
 
     public Buyer addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
 
@@ -81,8 +56,13 @@ public class userService {
         buyer.setPassword(tempPass);
         emailSenderService.sendRegistrationEmail(buyer);
         return buyerRepository.save(buyer);
+    }
 
-
+    public Buyer changePassword(Buyer user, long id){
+        Buyer newPass = buyerRepository.findById(id);
+        newPass.setPassword(user.getPassword());
+        System.out.println(newPass);
+        return buyerRepository.save(newPass);
     }
 
 }
