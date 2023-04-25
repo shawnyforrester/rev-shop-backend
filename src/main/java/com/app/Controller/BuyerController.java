@@ -1,5 +1,5 @@
 
-/**package com.app.Controller;
+package com.app.Controller;
 
 import com.app.Exception.InvalidCredentials;
 import com.app.Exception.UserNotFound;
@@ -48,6 +48,6 @@ public class BuyerController {
     @GetMapping("buyer")
     public List<Buyer> getAllAccounts(){
         return buyerService.getAllBuyers();
-    }*/
+    }
 
-}*/
+}

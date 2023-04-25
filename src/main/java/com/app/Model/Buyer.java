@@ -1,4 +1,4 @@
-/**package com.app.Model;
+package com.app.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -45,4 +45,4 @@ public class Buyer {
 
 
     }
-}*/
+}
