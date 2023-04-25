@@ -20,7 +20,5 @@ public class InventoryService {
 
     public Product deleteInventoryById() { return null;}
 
-    public List<Product> getProductByType(String type){
-        return inventoryRepository.findProductByType(type);
-    }
+
 }

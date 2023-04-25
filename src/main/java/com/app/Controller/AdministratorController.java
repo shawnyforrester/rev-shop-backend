@@ -20,11 +20,6 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-   /* @PostMapping("administrator")
-    public Administrator addAccount(@RequestBody Administrator account){
-        return administratorService.addAccount(account);
-    }*/
-
     @GetMapping("administrator")
     public List<Administrator> getAllAccounts() throws Exception{
         return administratorService.getAllAccounts();

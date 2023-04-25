@@ -22,9 +22,11 @@ public class InventoryController {
         return inventoryService.getAllInventory();
     }
 
-    @PostMapping("inventory")
+    @PostMapping("products")
     public Product addNewInventory(@RequestBody Product product){
+
         return inventoryService.addNewInventory(product);
+
     }
 
     @DeleteMapping("inventory/{id}")
@@ -32,10 +34,10 @@ public class InventoryController {
         return inventoryService.deleteInventoryById();
     }
 
-    @GetMapping(value = "inventory", params = {"type"})
-    public List<Product> getProductByType(@RequestParam("type") String type){
-        return inventoryService.getProductByType(type);
-    }
+//    @GetMapping(value = "inventory", params = {"type"})
+//    public List<Product> getProductByType(@RequestParam("type") String type){
+//        return inventoryService.getProductByType(type);
+//    }
 
 
 }

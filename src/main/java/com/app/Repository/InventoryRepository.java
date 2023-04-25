@@ -10,6 +10,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface InventoryRepository extends JpaRepository<Product,Long> {
-    @Query("FROM Product WHERE type = :type")
-    List<Product> findProductByType(@Param("type") String type);
+
 }
