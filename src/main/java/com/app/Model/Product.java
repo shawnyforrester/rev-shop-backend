@@ -8,22 +8,24 @@ import lombok.Data;
  */
 @Entity
 @Data
+@Table(name="product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String type;
+    private String title;
     @Column
-    private String size;
+    private String price;
     @Column
-    private Long quantity;
+    private String description;
     @Column
-    private String review;
+    private String category;
+
     @Column
-    private Double price;
-    @Column
-    private String imageUrl;
+    private String image;
+
+    private Double rating;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference

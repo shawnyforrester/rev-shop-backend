@@ -1,6 +1,7 @@
 package com.app.Service;
 
 import com.app.Exception.InvalidCredentials;
+import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
 import com.app.Model.User;
 import com.app.Repository.BuyerRepository;
@@ -68,21 +69,31 @@ public class userService {
 //
 //    }
 
-    public Buyer addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
+    public void addAccount(User user) throws MessagingException, UnsupportedEncodingException {
 
-        Buyer existingBuyer = buyerRepository.findByEmail(buyer.getEmail());
-        if(existingBuyer !=null){
-            throw new InvalidCredentials("Email " + buyer.getEmail() + " already exists");
-        }
-        System.out.println((buyer.getEmail()));
+//        User existingUser = userRepo.findByEmail(user.getEmail()).get();
+//        if(existingUser !=null){
+//            throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
+//        }
+//        System.out.println((user.getEmail()));
 
-        Random random = new Random();
-        String tempPass = String.valueOf(random.nextInt(9999999));
-        buyer.setPassword(tempPass);
-        emailSenderService.sendRegistrationEmail(buyer);
-        return buyerRepository.save(buyer);
 
+//        Random random = new Random();
+//        String tempPass = String.valueOf(random.nextInt(9999999));
+//        user.setPassword(tempPass);
+        userRepo.save(user);
+        //emailSenderService.sendRegistrationEmail(user);
 
     }
+
+    public User login(String username, String password){
+     User loggedUser = userRepo.findByUsernameAndPassword(username,password);
+
+     if(loggedUser == null){
+     throw new UserNotFound("Buyer Not Found");
+     }
+
+     return loggedUser;
+     }
 
 }
