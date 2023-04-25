@@ -8,8 +8,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "product")
-public class Product {
+@Table(name = "inventory")
+public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,10 +23,4 @@ public class Product {
     private String description;
     @Column
     private String image;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
-    @JoinColumn(name = "retailer_id", referencedColumnName = "id")
-    private Retailer retailer;
-
 }
