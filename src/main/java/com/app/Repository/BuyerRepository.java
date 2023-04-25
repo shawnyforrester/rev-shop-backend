@@ -9,8 +9,7 @@ public interface BuyerRepository extends JpaRepository<Buyer,Long> {
 
     Buyer findByEmail(String Email);
     Buyer findByUsernameAndPassword(String username, String password);
-    @Query("FROM Buyer WHERE username = :username")
-    Buyer getUserByUsername(@Param("username")String username);
+
 
 
 }

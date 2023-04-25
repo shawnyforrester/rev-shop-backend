@@ -30,18 +30,19 @@ public class BuyerService {
 
 
     public Buyer addAccount(User user){
-        Buyer newBuyer = new Buyer (user.getName(), user.getUsername(), user.getPassword());
-        return buyerRepository.save(newBuyer);
+        Buyer newBuyer = new Buyer (user.getUsername(), user.getPassword());
+        buyerRepository.save(newBuyer);
+        return newBuyer;
     }
 
 
-    public Buyer getBuyerByUsername(String username){
-        return buyerRepository.getUserByUsername(username);
+    public Buyer getBuyerByUsername(User user){
+        return buyerRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
     }
 
-    public void addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
+   /** public void addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
 
-        Buyer existingBuyer = buyerRepository.findByEmail(buyer.getEmail());
+       /** Buyer existingBuyer = buyerRepository.findByEmail(buyer.getEmail());
         if(existingBuyer !=null){
             throw new InvalidCredentials("Email " + buyer.getEmail() + " already exists");
         }
@@ -54,19 +55,19 @@ public class BuyerService {
         buyerRepository.save(buyer);
 
         emailSenderService.sendRegistrationEmail(buyer);
-    }
+    }*/
 
-    public Buyer login(String username, String password){
-        Buyer loginCredentials = buyerRepository.findByUsernameAndPassword(username,password);
+   public Buyer login(String username, String password){
+       Buyer loginCredentials = buyerRepository.findByUsernameAndPassword(username,password);
 
-        if(loginCredentials == null){
-            throw new UserNotFound("Buyer Not Found");
-        }
+       if(loginCredentials == null){
+           throw new UserNotFound("Buyer Not Found");
+       }
 
-        loginCredentials.setUsername(username);
-        loginCredentials.setPassword(password);
+       loginCredentials.setUsername(username);
+       loginCredentials.setPassword(password);
 
 
-        return loginCredentials;
-    }
+       return loginCredentials;
+   }
 }

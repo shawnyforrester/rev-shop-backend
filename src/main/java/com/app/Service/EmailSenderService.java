@@ -1,6 +1,7 @@
 package com.app.Service;
 
 import com.app.Model.Buyer;
+import com.app.Model.User;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
