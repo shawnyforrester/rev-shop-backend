@@ -91,7 +91,7 @@ public class UserController {
     }
 
     @PatchMapping("login/{id}")
-    public Buyer resetPassword(@RequestBody Buyer user, @PathVariable long id){
+    public User changePassword(@RequestBody User user, @PathVariable long id){
         return us.changePassword(user, id);
     }
 
