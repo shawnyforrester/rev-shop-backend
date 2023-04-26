@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST}, allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE}, allowCredentials = "true")
 @RestController
 public class InventoryController {
     InventoryService inventoryService;
@@ -27,15 +27,27 @@ public class InventoryController {
         return inventoryService.addNewInventory(product);
     }
 
-    @DeleteMapping("inventory/{id}")
-    public Product deleteInventoryById(@PathVariable Long id){
-        return inventoryService.deleteInventoryById();
+    @DeleteMapping("inventory/{title}")
+    public Product deleteInventoryById(@PathVariable String title){
+        return inventoryService.deleteInventoryByTitle(title);
     }
 
-    @GetMapping(value = "inventory", params = {"type"})
-    public List<Product> getProductByType(@RequestParam("type") String type){
-        return inventoryService.getProductByType(type);
+    @GetMapping ("inventory/{category}")
+    public List<Product> getSpecificCategory(@PathVariable String category) {
+        return inventoryService.getSpecificCategory(category);
+    }
+
+    @GetMapping("inventory/categories")
+    public List<String> getAllCategories() {
+        return inventoryService.getAllCategories();
     }
 
 
-}
+
+//    @GetMapping(value = "inventory", params = {"type"})
+//    public List<Product> getProductByType(@RequestParam("type") String type){
+//        return inventoryService.getProductByType(type);
+    }
+
+
+

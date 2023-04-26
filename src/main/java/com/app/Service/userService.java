@@ -1,6 +1,7 @@
 package com.app.Service;
 
 import com.app.Exception.InvalidCredentials;
+import com.app.Exception.UserNotFound;
 import com.app.Model.Buyer;
 import com.app.Model.User;
 import com.app.Repository.BuyerRepository;
@@ -44,45 +45,30 @@ public class userService {
             return newUser;
         }
     return null;
-
     }
 
 
-//    public User addUser(User user) throws MessagingException, UnsupportedEncodingException {
-//        if(user.getRole() == "buyer"){
-//            Buyer existingBuyer = buyerRepository.findByEmail(user.getEmail());
-//            if(existingBuyer !=null){
-//                throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
-//            }
-//            System.out.println((user.getEmail()));
-//
-//            Random random = new Random();
-//            String tempPass = String.valueOf(random.nextInt(9999999));
-//            user.setPassword(tempPass);
-//
-//            buyerService.addAccount(user);
-//
-//            emailSenderService.sendRegistrationEmail(user);
-//        }
-//        return userRepo.save(user);
-//
-//    }
 
-    public Buyer addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
+    public void addAccount(User user) throws MessagingException, UnsupportedEncodingException {
+        userRepo.save(user);
+    }
 
-        Buyer existingBuyer = buyerRepository.findByEmail(buyer.getEmail());
-        if(existingBuyer !=null){
-            throw new InvalidCredentials("Email " + buyer.getEmail() + " already exists");
-        }
-        System.out.println((buyer.getEmail()));
+    public User login(String username, String password){
+     User loggedUser = userRepo.findByUsernameAndPassword(username,password);
 
-        Random random = new Random();
-        String tempPass = String.valueOf(random.nextInt(9999999));
-        buyer.setPassword(tempPass);
-        emailSenderService.sendRegistrationEmail(buyer);
-        return buyerRepository.save(buyer);
+     if(loggedUser == null){
+     throw new UserNotFound("Buyer Not Found");
+     }
 
+     return loggedUser;
+     }
 
+    public User changePassword(User user, long id){
+        User newPass = userRepo.findById(id);
+        newPass.setPassword(user.getPassword());
+        System.out.println(newPass);
+        userRepo.save(newPass);
+        return newPass;
     }
 
 }

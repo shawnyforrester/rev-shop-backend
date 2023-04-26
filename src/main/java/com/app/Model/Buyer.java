@@ -29,6 +29,9 @@ public class Buyer {
     @Column
     private String role;
 
+    public Buyer(String name, String username, String email, String password, String telephone, String address, String role) {
+    }
+
 
     public String getEmail() {
         return email;
@@ -38,6 +41,5 @@ public class Buyer {
         this.email = email;
     }
 
-    public Buyer(String username, String password) {
-    }
+
 }
