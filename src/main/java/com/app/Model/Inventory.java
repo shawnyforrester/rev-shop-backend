@@ -8,28 +8,19 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name="product")
-public class Product {
+@Table(name = "inventory")
+public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String title;
     @Column
-    private String price;
-    @Column(length=1530)
-    private String description;
+    private Double price;
     @Column
     private String category;
-
+    @Column
+    private String description;
     @Column
     private String image;
-//    @Column
-//    private Double rating;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JsonBackReference
-    @JoinColumn(name = "retailer_id", referencedColumnName = "id")
-    private Retailer retailer;
-
 }

@@ -9,4 +9,6 @@ public interface RetailerRepository extends JpaRepository<Retailer,Long> {
 
     @Query("FROM Retailer WHERE username = :username")
     Retailer getRetailerByUsername(@Param("username")String username);
+
+
 }

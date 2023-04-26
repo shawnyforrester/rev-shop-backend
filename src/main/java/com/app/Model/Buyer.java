@@ -13,11 +13,7 @@ public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-
     private long id;
-    @Column
-
-    private Long id;
 
     private String name;
     @Column
@@ -33,6 +29,9 @@ public class Buyer {
     @Column
     private String role;
 
+    public Buyer(String name, String username, String email, String password, String telephone, String address, String role) {
+    }
+
 
     public String getEmail() {
         return email;
@@ -40,9 +39,7 @@ public class Buyer {
 
     public void setEmail(String email) {
         this.email = email;
-
-    public Buyer(String name, String username, String password) {
-
-
     }
+
+
 }

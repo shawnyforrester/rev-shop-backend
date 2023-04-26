@@ -1,4 +1,3 @@
-
 package com.app.Controller;
 
 import com.app.Response.PaymentResponse;
@@ -17,7 +16,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/payments")
 public class PaymentController {
-
 
     private final StripeService stripeService;
 
