@@ -17,7 +17,7 @@ public class Product {
     private String title;
     @Column
     private String price;
-    @Column
+    @Column(length=1530)
     private String description;
     @Column
     private String category;

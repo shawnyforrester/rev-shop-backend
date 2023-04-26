@@ -37,6 +37,8 @@ public class userService {
     }
 
 
+
+
     public Optional<User> getUserByUsername(String username) {
         Optional<User> newUser = userRepo.findByUsername(username);
         if (newUser.isPresent()) {
@@ -44,6 +46,8 @@ public class userService {
         }
     return null;
     }
+
+
 
     public void addAccount(User user) throws MessagingException, UnsupportedEncodingException {
         userRepo.save(user);
