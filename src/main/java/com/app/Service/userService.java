@@ -37,53 +37,16 @@ public class userService {
     }
 
 
-
-
     public Optional<User> getUserByUsername(String username) {
         Optional<User> newUser = userRepo.findByUsername(username);
         if (newUser.isPresent()) {
             return newUser;
         }
     return null;
-
     }
 
-
-//    public User addUser(User user) throws MessagingException, UnsupportedEncodingException {
-//        if(user.getRole() == "buyer"){
-//            Buyer existingBuyer = buyerRepository.findByEmail(user.getEmail());
-//            if(existingBuyer !=null){
-//                throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
-//            }
-//            System.out.println((user.getEmail()));
-//
-//            Random random = new Random();
-//            String tempPass = String.valueOf(random.nextInt(9999999));
-//            user.setPassword(tempPass);
-//
-//            buyerService.addAccount(user);
-//
-//            emailSenderService.sendRegistrationEmail(user);
-//        }
-//        return userRepo.save(user);
-//
-//    }
-
     public void addAccount(User user) throws MessagingException, UnsupportedEncodingException {
-
-//        User existingUser = userRepo.findByEmail(user.getEmail()).get();
-//        if(existingUser !=null){
-//            throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
-//        }
-//        System.out.println((user.getEmail()));
-
-
-//        Random random = new Random();
-//        String tempPass = String.valueOf(random.nextInt(9999999));
-//        user.setPassword(tempPass);
         userRepo.save(user);
-        //emailSenderService.sendRegistrationEmail(user);
-
     }
 
     public User login(String username, String password){
@@ -95,5 +58,13 @@ public class userService {
 
      return loggedUser;
      }
+
+    public User changePassword(User user, long id){
+        User newPass = userRepo.findById(id);
+        newPass.setPassword(user.getPassword());
+        System.out.println(newPass);
+        userRepo.save(newPass);
+        return newPass;
+    }
 
 }

@@ -17,7 +17,6 @@ import java.util.Map;
 @RequestMapping("/payments")
 public class PaymentController {
 
-
     private final StripeService stripeService;
 
     @Autowired

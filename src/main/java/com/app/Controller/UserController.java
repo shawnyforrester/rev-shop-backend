@@ -90,5 +90,10 @@ public class UserController {
                 .body("You've been signed out!");
     }
 
+    @PatchMapping("login/{id}")
+    public User changePassword(@RequestBody User user, @PathVariable long id){
+        return us.changePassword(user, id);
+    }
+
 
 }

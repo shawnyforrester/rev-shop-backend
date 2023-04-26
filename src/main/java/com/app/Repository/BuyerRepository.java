@@ -10,6 +10,6 @@ public interface BuyerRepository extends JpaRepository<Buyer,Long> {
     Buyer findByEmail(String Email);
     Buyer findByUsernameAndPassword(String username, String password);
 
-
+    Buyer findById(long id);
 
 }
