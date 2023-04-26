@@ -63,7 +63,8 @@ public class userService {
         User newPass = userRepo.findById(id);
         newPass.setPassword(user.getPassword());
         System.out.println(newPass);
-        return userRepo.save(newPass);
+        userRepo.save(newPass);
+        return newPass;
     }
 
 }
