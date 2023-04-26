@@ -1,6 +1,6 @@
 
 
-INSERT INTO product (title, price, category, description, image)
+INSERT INTO product (title, price, description, category, image)
 VALUES ('Puma', 109.95, 'Your perfect shoes for everyday use and walks in the forest', 'shoes',
         'https://i.ibb.co/F00LzVc/aqua-lavender-casuals.jpg'),
        ('Mens Casual Premium Slim Fit T-Shirts', 122.3,
@@ -13,18 +13,18 @@ VALUES ('Puma', 109.95, 'Your perfect shoes for everyday use and walks in the fo
         'The color could be slightly different between on the screen and in practice.  Please note that body builds vary by person, therefore, detailed size information should be reviewed.',
         'clothing', 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg'),
        ('Asics Mens Running Shoe', 600,
-        'Soft, light-weight for off-road and pavement running. Strong support for pronated athletes.', 'shoes',
+        'Soft, light-weight for off-road and pavement running. Strong support for pronated athletes', 'shoes',
         'https://i.ibb.co/3WfYXBc/asics-white-running-show.jpg'),
        ('Converse light-blue casuals', 168,
         'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',
         'shoes', 'https://i.ibb.co/Y85qjyR/converse-light-blue-casuals.jpg'),
        ('Marine Mens Athletics', 199.99, 'Classic mens training shoe. Perfect for training or for casual events',
-        'mens shoes', 'https://i.ibb.co/JCyB1X6/marine-green-athletic-shoe.jpg'),
+        'shoes', 'https://i.ibb.co/JCyB1X6/marine-green-athletic-shoe.jpg'),
        ('Nike Black White Tick Mens Shoe', 210.99,
-        'Classic, causal Nike support for all activities', 'mens shoes',
+        'Classic, causal Nike support for all activities', 'shoes',
         'https://i.ibb.co/tMQwJSV/nike-black-white-swoosh-casual.jpg'),
        ('Nike Cherry Blossom',64,
-         'Stylish classics for casual and athletic activities. LIMITED STOCK!', 'mens shoes','https://i.ibb.co/BK8wqVD/nike-cherry-blossom.jpg'
+         'Stylish classics for casual and athletic activities. LIMITED STOCK!', 'shoes','https://i.ibb.co/BK8wqVD/nike-cherry-blossom.jpg'
          ),
        ('Nike Runners Shoe - Red', 200,
         'Soft, light-weight for off-road and pavement running. Strong support for pronated athletes.', 'shoes',
