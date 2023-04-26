@@ -25,7 +25,7 @@ public class Product {
     @Column
     private String image;
 
-    private Double rating;
+//    private Double rating;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
