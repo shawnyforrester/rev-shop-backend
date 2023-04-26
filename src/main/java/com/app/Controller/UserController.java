@@ -51,10 +51,10 @@ public class UserController {
      * for login for each user
      */
     @PostMapping("login")
-    public Buyer login(@RequestBody Buyer buyer) {
+    public User login(@RequestBody User user) {
         try {
-            Buyer buyerLogin = buyerService.login(buyer.getUsername(), buyer.getPassword());
-            return buyerLogin;
+            return us.login (user.getUsername(), user.getPassword());
+
         } catch (UserNotFound e) {
             System.out.println("invalid login credentials");
             return null;
@@ -67,8 +67,20 @@ public class UserController {
      * "role" parameter. The user is also added to a general datatable called "users"
      */
     @PostMapping("registration")
-    public Buyer addAccount(@RequestBody Buyer buyer) throws MessagingException, UnsupportedEncodingException {
-        return us.addAccount(buyer);
+    public ResponseEntity addAccount(@RequestBody User user) throws MessagingException, UnsupportedEncodingException {
+
+        if(user.getRole().equals("buyer")){
+            buyerService.addBuyer(user);
+            us.addAccount(user);
+            return ResponseEntity.ok("Buyer successfully added");
+
+        } else {
+            retailerService.addAccount(user);
+            us.addAccount(user);
+            return ResponseEntity.ok("Retailer successfully added");
+        }
+
+
     }
 
 
@@ -76,6 +88,11 @@ public class UserController {
     public ResponseEntity<?> logoutUser() {
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, "NewCookie")
                 .body("You've been signed out!");
+    }
+
+    @PatchMapping("login/{id}")
+    public User changePassword(@RequestBody User user, @PathVariable long id){
+        return us.changePassword(user, id);
     }
 
 

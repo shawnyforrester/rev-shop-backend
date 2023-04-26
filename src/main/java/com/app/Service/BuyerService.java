@@ -18,10 +18,15 @@ public class BuyerService {
     BuyerRepository buyerRepository;
     EmailSenderService emailSenderService;
 
+    userService us;
+
     @Autowired
-    public BuyerService(BuyerRepository buyerRepository, EmailSenderService emailSenderService) {
+    public BuyerService(BuyerRepository buyerRepository, EmailSenderService emailSenderService,
+                        userService us) {
         this.buyerRepository = buyerRepository;
         this.emailSenderService = emailSenderService;
+        this.us = us;
+
     }
 
     public List<Buyer> getAllBuyers(){
@@ -29,45 +34,36 @@ public class BuyerService {
     }
 
 
-    public Buyer addAccount(User user){
-        Buyer newBuyer = new Buyer (user.getUsername(), user.getPassword());
-        buyerRepository.save(newBuyer);
-        return newBuyer;
-    }
+//    public Buyer addAccount(User user){
+//        Buyer newBuyer = new Buyer (user.getUsername(), user.getPassword());
+//        buyerRepository.save(newBuyer);
+//        return newBuyer;
+//    }
 
 
     public Buyer getBuyerByUsername(User user){
         return buyerRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
     }
 
-   /** public void addAccount(Buyer buyer) throws MessagingException, UnsupportedEncodingException {
+   public void addBuyer(User user) throws MessagingException, UnsupportedEncodingException {
 
-       /** Buyer existingBuyer = buyerRepository.findByEmail(buyer.getEmail());
-        if(existingBuyer !=null){
-            throw new InvalidCredentials("Email " + buyer.getEmail() + " already exists");
-        }
-        System.out.println((buyer.getEmail()));
-
-        Random random = new Random();
-        String tempPass = String.valueOf(random.nextInt(9999999));
-        buyer.setPassword(tempPass);
-
-        buyerRepository.save(buyer);
-
-        emailSenderService.sendRegistrationEmail(buyer);
-    }*/
-
-   public Buyer login(String username, String password){
-       Buyer loginCredentials = buyerRepository.findByUsernameAndPassword(username,password);
-
-       if(loginCredentials == null){
-           throw new UserNotFound("Buyer Not Found");
+       Buyer existingBuyer = buyerRepository.findByEmail(user.getEmail());
+       if (existingBuyer != null) {
+           throw new InvalidCredentials("Email " + user.getEmail() + " already exists");
        }
+       System.out.println((user.getEmail()));
 
-       loginCredentials.setUsername(username);
-       loginCredentials.setPassword(password);
+       Random random = new Random();
+       String tempPass = String.valueOf(random.nextInt(9999999));
+       user.setPassword(tempPass);
 
+       Buyer newBuyer = new Buyer(user.getName(), user.getUsername(), user.getEmail(),
+               user.getPassword(), user.getTelephone(), user.getAddress(), user.getRole());
 
-       return loginCredentials;
+       emailSenderService.sendRegistrationEmail(user);
+       buyerRepository.save(newBuyer);
+
    }
+
+
 }

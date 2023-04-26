@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "product")
+@Table(name="product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,16 @@ public class Product {
     @Column
     private String title;
     @Column
-    private Double price;
-    @Column
-    private String category;
+    private String price;
     @Column
     private String description;
     @Column
+    private String category;
+
+    @Column
     private String image;
+
+    private Double rating;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference

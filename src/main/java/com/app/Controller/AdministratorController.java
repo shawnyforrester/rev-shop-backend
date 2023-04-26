@@ -2,6 +2,7 @@ package com.app.Controller;
 
 import com.app.Model.Administrator;
 import com.app.Model.Retailer;
+import com.app.Model.User;
 import com.app.Service.AdministratorService;
 import com.app.Service.RetailerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,8 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-   /* @PostMapping("administrator")
-    public Administrator addAccount(@RequestBody Administrator account){
-        return administratorService.addAccount(account);
-    }*/
-
     @GetMapping("administrator")
-    public List<Administrator> getAllAccounts() throws Exception{
+    public List<User> getAllAccounts() throws Exception{
         return administratorService.getAllAccounts();
     }
 
