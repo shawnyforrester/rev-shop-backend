@@ -24,7 +24,7 @@ public class Product {
 
     @Column
     private String image;
-
+//    @Column
 //    private Double rating;
 
     @ManyToOne(fetch = FetchType.EAGER)
