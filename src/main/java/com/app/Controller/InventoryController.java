@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collections;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE}, allowCredentials = "true")
+@CrossOrigin(origins = "http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE}, allowCredentials = "true")
 @RestController
 public class InventoryController {
     InventoryService inventoryService;
