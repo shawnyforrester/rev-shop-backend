@@ -2,12 +2,16 @@ package com.app.Service;
 
 import com.app.Model.User;
 import com.app.Repository.UserRepository;
-import org.assertj.core.api.Assertions;
+
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTests {
@@ -19,6 +23,7 @@ public class UserServiceTests {
     private UserService userService;
 
     @Test
+    @SneakyThrows
     public void UserService_CreateUser_ReturnsUser() {
 
         User user = User.builder()
@@ -31,8 +36,9 @@ public class UserServiceTests {
                 .address("1234 Road St Texas")
                 .role("user")
                 .build();
-        //TODO implement actions and assertions
 
 
+        when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
+        User savedUser = userService.addAccount(user);
     }
 }

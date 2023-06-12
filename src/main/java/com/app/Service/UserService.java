@@ -1,18 +1,14 @@
 package com.app.Service;
 
-import com.app.Exception.InvalidCredentials;
 import com.app.Exception.UserNotFound;
-import com.app.Model.Buyer;
 import com.app.Model.User;
 import com.app.Repository.BuyerRepository;
 import com.app.Repository.UserRepository;
 import jakarta.mail.MessagingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 public class UserService {
@@ -48,8 +44,14 @@ public class UserService {
 
 
 
-    public void addAccount(User user) throws MessagingException, UnsupportedEncodingException {
-        userRepo.save(user);
+    public User addAccount(User user) throws MessagingException, UnsupportedEncodingException {
+        try{
+            userRepo.save(user);
+        }
+        catch(Exception e){
+            throw new UnsupportedEncodingException();
+        }
+        return user;
     }
 
     public User login(String username, String password){
