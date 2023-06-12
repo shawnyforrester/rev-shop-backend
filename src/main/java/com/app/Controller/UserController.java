@@ -2,17 +2,17 @@ package com.app.Controller;
 
 
 import com.app.Exception.UserNotFound;
-import com.app.Model.Buyer;
+import com.app.Model.User;
 import com.app.Service.AdministratorService;
 import com.app.Service.BuyerService;
 import com.app.Service.RetailerService;
-import com.app.Service.userService;
+import com.app.Service.UserService;
 import jakarta.mail.MessagingException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.app.Model.User;
 
 import java.io.UnsupportedEncodingException;
 
@@ -27,7 +27,7 @@ import java.io.UnsupportedEncodingException;
 public class UserController {
 
 
-    userService us;
+    UserService userService;
 
     AdministratorService adminService;
 
@@ -36,9 +36,9 @@ public class UserController {
     BuyerService buyerService;
     //MessageResponse messageResponse;
 
-    public UserController(com.app.Service.userService us, com.app.Service.AdministratorService adminService,
+    public UserController(UserService userService, AdministratorService adminService,
                           RetailerService retailerService, BuyerService buyerService) {
-        this.us = us;
+        this.userService = userService;
         this.adminService = adminService;
         this.retailerService = retailerService;
         this.buyerService = buyerService;
@@ -53,7 +53,7 @@ public class UserController {
     @PostMapping("login")
     public User login(@RequestBody User user) {
         try {
-            return us.login (user.getUsername(), user.getPassword());
+            return userService.login (user.getUsername(), user.getPassword());
 
         } catch (UserNotFound e) {
             System.out.println("invalid login credentials");
@@ -71,12 +71,12 @@ public class UserController {
 
         if(user.getRole().equals("buyer")){
             buyerService.addBuyer(user);
-            us.addAccount(user);
+            userService.addAccount(user);
             return ResponseEntity.ok("Buyer successfully added");
 
-        } else {
+        }else{
             retailerService.addAccount(user);
-            us.addAccount(user);
+            userService.addAccount(user);
             return ResponseEntity.ok("Retailer successfully added");
         }
 
@@ -92,7 +92,7 @@ public class UserController {
 
     @PatchMapping("login/{id}")
     public User changePassword(@RequestBody User user, @PathVariable long id){
-        return us.changePassword(user, id);
+        return userService.changePassword(user, id);
     }
 
 

@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.Random;
 
 @Service
-public class userService {
+public class UserService {
 
 
     private UserRepository userRepo;
@@ -26,12 +26,11 @@ public class userService {
 
     private BuyerService buyerService;
 
-    public userService (UserRepository userRepo, BuyerRepository buyerRepository,
+    public UserService (UserRepository userRepo, BuyerRepository buyerRepository,
                         EmailSenderService emailSenderService){
 
         this.userRepo = userRepo;
 
-        this.buyerRepository = buyerRepository;
 
         this.emailSenderService = emailSenderService;
     }
@@ -44,7 +43,7 @@ public class userService {
         if (newUser.isPresent()) {
             return newUser;
         }
-    return null;
+        return null;
     }
 
 
@@ -54,14 +53,14 @@ public class userService {
     }
 
     public User login(String username, String password){
-     User loggedUser = userRepo.findByUsernameAndPassword(username,password);
+        User loggedUser = userRepo.findByUsernameAndPassword(username,password);
 
-     if(loggedUser == null){
-     throw new UserNotFound("Buyer Not Found");
-     }
+        if(loggedUser == null){
+            throw new UserNotFound("Buyer Not Found");
+        }
 
-     return loggedUser;
-     }
+        return loggedUser;
+    }
 
     public User changePassword(User user, long id){
         User newPass = userRepo.findById(id);

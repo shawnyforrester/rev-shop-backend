@@ -18,11 +18,11 @@ public class BuyerService {
     BuyerRepository buyerRepository;
     EmailSenderService emailSenderService;
 
-    userService us;
+    UserService us;
 
     @Autowired
     public BuyerService(BuyerRepository buyerRepository, EmailSenderService emailSenderService,
-                        userService us) {
+                        UserService us) {
         this.buyerRepository = buyerRepository;
         this.emailSenderService = emailSenderService;
         this.us = us;

@@ -1,0 +1,6 @@
+Principles
+
+Atomic - if the full transaction doesn't finish the db does a rollback
+Consistent - if part of a transaction doesn't meet integrity checks it will be rolled back
+Isolated - each transaction needs to put in a queue and done one at a time
+Durable - ensuring that the transactions will persist once completed
