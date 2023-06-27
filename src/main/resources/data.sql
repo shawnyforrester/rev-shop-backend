@@ -35,3 +35,4 @@ VALUES ('Puma', 109.95, 'Your perfect shoes for everyday use and walks in the fo
        ('Fila Casuals', 600,
         'Soft, light-weight for off-road and pavement running. Strong support for pronated athletes.', 'shoes',
         'https://i.ibb.co/gPcxJ1y/white-fila.jpg');
+COMMIT;

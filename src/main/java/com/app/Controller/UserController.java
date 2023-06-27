@@ -8,9 +8,8 @@ import com.app.Service.BuyerService;
 import com.app.Service.RetailerService;
 import com.app.Service.UserService;
 import jakarta.mail.MessagingException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,33 +23,19 @@ import java.io.UnsupportedEncodingException;
         maxAge = 3600)
 @RestController
 @RequestMapping
+@RequiredArgsConstructor
 public class UserController {
 
-
-    UserService userService;
-
-    AdministratorService adminService;
-
-    RetailerService retailerService;
-
-    BuyerService buyerService;
-    //MessageResponse messageResponse;
-
-    public UserController(UserService userService, AdministratorService adminService,
-                          RetailerService retailerService, BuyerService buyerService) {
-        this.userService = userService;
-        this.adminService = adminService;
-        this.retailerService = retailerService;
-        this.buyerService = buyerService;
-
-    }
-
+    private final UserService userService;
+    private final AdministratorService adminService;
+    private final RetailerService retailerService;
+    private final BuyerService buyerService;
 
     /**
      * I have attempted to add additional code using authentication manager and jwtUtils to authenticate and create a secure Cookie
      * for login for each user
      */
-    @PostMapping("login")
+    @GetMapping("login")
     public User login(@RequestBody User user) {
         try {
             return userService.login (user.getUsername(), user.getPassword());
@@ -69,15 +54,18 @@ public class UserController {
     @PostMapping("registration")
     public ResponseEntity addAccount(@RequestBody User user) throws MessagingException, UnsupportedEncodingException {
 
-        if(user.getRole().equals("buyer")){
+        if(user.getRole().equals("buyer")
+            && userService.getUserByUsername(user.getUsername()) == null){
             buyerService.addBuyer(user);
             userService.addAccount(user);
             return ResponseEntity.ok("Buyer successfully added");
 
-        }else{
+        }else if (user.getRole().equals("retailer")){
             retailerService.addAccount(user);
             userService.addAccount(user);
             return ResponseEntity.ok("Retailer successfully added");
+        }else{
+            return ResponseEntity.badRequest().build();
         }
 
 
@@ -91,7 +79,7 @@ public class UserController {
     }
 
     @PatchMapping("login/{id}")
-    public User changePassword(@RequestBody User user, @PathVariable long id){
+    public User changePassword(@RequestBody User user, @PathVariable int id){
         return userService.changePassword(user, id);
     }
 

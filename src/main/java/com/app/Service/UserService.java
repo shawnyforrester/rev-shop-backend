@@ -2,36 +2,20 @@ package com.app.Service;
 
 import com.app.Exception.UserNotFound;
 import com.app.Model.User;
-import com.app.Repository.BuyerRepository;
 import com.app.Repository.UserRepository;
 import jakarta.mail.MessagingException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
 
-    private UserRepository userRepo;
-
-    private BuyerRepository buyerRepository;
-
-    private EmailSenderService emailSenderService;
-
-    private BuyerService buyerService;
-
-    public UserService (UserRepository userRepo, BuyerRepository buyerRepository,
-                        EmailSenderService emailSenderService){
-
-        this.userRepo = userRepo;
-
-
-        this.emailSenderService = emailSenderService;
-    }
-
-
+    private final UserRepository userRepo;
 
 
     public Optional<User> getUserByUsername(String username) {
@@ -57,15 +41,18 @@ public class UserService {
     public User login(String username, String password){
         User loggedUser = userRepo.findByUsernameAndPassword(username,password);
 
-        if(loggedUser == null){
-            throw new UserNotFound("Buyer Not Found");
+        if(loggedUser.getUsername() == null){
+            throw new UserNotFound("Account Not Found");
         }
-
+        if(loggedUser.getUsername().equals(username) && loggedUser.getPassword().equals(password)){
         return loggedUser;
+        }else{
+            return null;
+        }
     }
 
-    public User changePassword(User user, long id){
-        User newPass = userRepo.findById(id);
+    public User changePassword(User user, int id){
+        User newPass = userRepo.findById(id).get();
         newPass.setPassword(user.getPassword());
         System.out.println(newPass);
         userRepo.save(newPass);
