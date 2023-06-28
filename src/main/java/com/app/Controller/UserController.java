@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
  * I have implemented a single controller to handle login, registration, and logout of any user type
  * This controller then uses instances of the admin, buyer, and retailer services to persist each user type in their respective repos.
  */
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true",
+@CrossOrigin(origins = "http://ec2-35-84-46-133.us-west-2.compute.amazonaws.com", allowedHeaders = "*", allowCredentials = "true",
         maxAge = 3600)
 @RestController
 @RequestMapping
