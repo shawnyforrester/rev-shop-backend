@@ -2,31 +2,31 @@ package com.app.Model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
+/*
+Zack
+    - switched written constructors, setters, and getters to use Spring annotations
+    -And AllArgsConstructor was needed and added for Mockito and Junit testing of the repository.
+ */
+
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Retailer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
+    private int id;
     private String name;
-    @Column
     private String username;
-
-    @Column
     private String email;
-
-    @Column
     private String password;
-
     private String telephone;
-
     private String address;
-
     private String role;
 
 
@@ -35,9 +35,6 @@ public class Retailer {
     @JsonManagedReference
     List<Product> products;
 
-    public Retailer() {
-
-    }
 
     public Retailer(String name, String username, String email, String password, String telephone, String address, String role) {
     }

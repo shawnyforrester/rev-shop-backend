@@ -2,30 +2,30 @@ package com.app.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-/** I have included a field called quantity in this model and as such inventory may not be needed.
+/*
+Zack
+    - switched written constructors, setters, and getters to use Spring annotations
+    -And AllArgsConstructor was needed and added for Mockito and Junit testing of the repository.
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name="product")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column
+    private int id;
     private String title;
-    @Column
     private String price;
     @Column(length=1530)
     private String description;
-    @Column
     private String category;
-
-    @Column
     private String image;
-//    @Column
-//    private Double rating;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference

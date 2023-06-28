@@ -1,11 +1,16 @@
+/*import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import lombok.Data;
+
 package com.app.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
-/** I have included a field called quantity in this model and as such inventory may not be needed.
- */
+
 @Entity
 @Data
 @Table(name = "inventory")
@@ -24,3 +29,4 @@ public class Inventory {
     @Column
     private String image;
 }
+*/
